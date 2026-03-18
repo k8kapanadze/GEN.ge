@@ -3,113 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Global Education Network | Oxford Official Representative</title>
-    <meta name="description" content="ოქსფორდის პირველი და ერთადერთი ოფიციალური წარმომადგენელი საქართველოში. საერთაშორისო პროგრამები, ენების კურსები და უნივერსიტეტში ჩაბარება.">
-    <meta name="keywords" content="განათლება, ოქსფორდი, საერთაშორისო პროგრამები, IELTS, ინგლისური ენის კურსები, Oxford Georgia">
-    
+    <title>Global Education Network | Premium Education</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <nav class="navbar">
-        <div class="container nav-flex">
-            <div class="logo">
-                <img src="images/logo.png.jpeg" alt="GEN Logo">
-            </div>
-            <ul class="nav-links" id="nav-menu">
-                <li><a href="#home" data-ka="მთავარი" data-en="Home">მთავარი</a></li>
-                <li><a href="#programs" data-ka="პროგრამები" data-en="Programs">პროგრამები</a></li>
-                <li><a href="#courses" data-ka="კურსები" data-en="Courses">კურსები</a></li>
-                <li><a href="#university" data-ka="უნივერსიტეტი" data-en="University">უნივერსიტეტი</a></li>
-                <li><a href="#about" data-ka="ჩვენს შესახებ" data-en="About Us">ჩვენს შესახებ</a></li>
+        <div class="nav-container">
+            <img src="images/logo.png.jpeg" alt="GEN" class="logo">
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#programs">Programs</a></li>
+                <li><a href="#university">University</a></li>
+                <li><a href="#gallery">Gallery</a></li>
             </ul>
-            <div class="nav-btns">
-                <button id="lang-toggle" class="lang-btn">EN</button>
-                <div class="basket-icon" onclick="toggleCart()">
-                    <i class="fas fa-shopping-cart"></i>
+            <div class="nav-right">
+                <button id="lang-btn">EN</button>
+                <div class="cart-trigger" onclick="toggleCart()">
+                    <i class="fas fa-shopping-bag"></i>
                     <span id="cart-count">0</span>
                 </div>
-                <a href="#contact" class="apply-header-btn" data-ka="რეგისტრაცია" data-en="Apply Now">რეგისტრაცია</a>
             </div>
         </div>
     </nav>
 
-    <section id="home" class="hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-content container">
-            <h1 class="animate-up">Global Education Network</h1>
-            <p class="sub-headline animate-up delay-1">ოქსფორდის პირველი და ერთადერთი ოფიციალური წარმომადგენელი საქართველოში</p>
-            <div class="hero-nav-boxes animate-up delay-2">
-                <a href="#about" class="hero-box">Mission</a>
-                <a href="#programs" class="hero-box">International Programs</a>
-                <a href="#courses" class="hero-box">Language Courses</a>
+    <section id="home" class="hero-split">
+        <div class="hero-video-container">
+            <img src="images/hero-bg.jpg.jpeg" class="hero-bg-img">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-text">
+            <h1 class="glitch">GLOBAL<br><span class="red-text">EDUCATION</span> NETWORK</h1>
+            <p>ოქსფორდის პირველი და ერთადერთი ოფიციალური წარმომადგენელი საქართველოში</p>
+            <div class="hero-actions">
+                <a href="#programs" class="btn-primary">Explore Programs</a>
+                <a href="#university" class="btn-outline">Book Consultant</a>
             </div>
         </div>
     </section>
 
-    <section id="programs" class="section container">
-        <h2 class="section-title">საერთაშორისო პროგრამები</h2>
-        <div class="programs-grid">
-            <div class="program-card">
-                <div class="img-container"><img src="images/pic1.jpg.jpeg" alt="UK"></div>
-                <h3>United Kingdom</h3>
-                <p>უმაღლესი განათლება ბრიტანეთში.</p>
-                <button class="btn-select" onclick="addToCart('UK Program')">Add to Basket</button>
+    <section id="gallery" class="section container">
+        <h2 class="title-center">Life at GEN</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="images/pic1.jpg.jpeg" class="blur-img">
+                <div class="gallery-overlay"><span>View Details</span></div>
             </div>
-            <div class="program-card">
-                <div class="img-container"><img src="images/pic2.jpg.jpeg" alt="USA"></div>
-                <h3>USA & Europe</h3>
-                <p>ამერიკული და ევროპული გამოცდილება.</p>
-                <button class="btn-select" onclick="addToCart('USA/Europe Program')">Add to Basket</button>
+            <div class="gallery-item">
+                <img src="images/pic2.jpg.jpeg" class="blur-img">
+                <div class="gallery-overlay"><span>View Details</span></div>
             </div>
-            <div class="program-card">
-                <div class="img-container"><img src="images/pic3.jpg.jpeg" alt="Asia"></div>
-                <h3>Asia</h3>
-                <p>აღმოაჩინე აზიის პერსპექტივები.</p>
-                <button class="btn-select" onclick="addToCart('Asia Program')">Add to Basket</button>
+            <div class="gallery-item">
+                <img src="images/pic3.jpg.jpeg" class="blur-img">
+                <div class="gallery-overlay"><span>View Details</span></div>
             </div>
         </div>
     </section>
 
-    <section id="university" class="section bg-light">
-        <div class="container">
-            <h2 class="section-title">უნივერსიტეტში ჩაბარების სერვისი</h2>
-            <div class="consultants-grid">
-                <div class="consultant-card available">
-                    <img src="images/cons1.jpg.jpeg" alt="Consultant 1">
-                    <h4>გიორგი ალანია</h4>
-                    <span class="status"><i class="fas fa-circle"></i> Available</span>
-                    <button class="req-btn" onclick="location.href='#contact'">Request a Call</button>
-                </div>
-                <div class="consultant-card available">
-                    <img src="images/cons2.jpg.jpeg" alt="Consultant 2">
-                    <h4>ნინო კაპანაძე</h4>
-                    <span class="status"><i class="fas fa-circle"></i> Available</span>
-                    <button class="req-btn" onclick="location.href='#contact'">Request a Call</button>
-                </div>
-                <div class="consultant-card booked">
-                    <div class="booked-overlay"><i class="fas fa-lock"></i></div>
-                    <h4>დავით მესხი</h4>
-                    <span class="status">No slots available</span>
-                    <button class="req-btn" disabled>Fully Booked</button>
-                </div>
-            </div>
+    <div id="side-cart" class="side-cart">
+        <div class="cart-header">
+            <h3>My Selection</h3>
+            <i class="fas fa-times" onclick="toggleCart()"></i>
         </div>
-    </section>
-
-    <div id="side-basket" class="basket-sidebar">
-        <div class="basket-header">
-            <h3>თქვენი შერჩეული პროგრამები</h3>
-            <button onclick="toggleCart()">&times;</button>
+        <div id="cart-content"></div>
+        <div class="cart-footer">
+            <input type="text" placeholder="Full Name" id="u-name">
+            <input type="email" placeholder="Email" id="u-email">
+            <button class="btn-submit">Submit Inquiry</button>
         </div>
-        <div id="basket-items"></div>
-        <form class="basket-form" id="order-form">
-            <input type="text" placeholder="სახელი, გვარი" required>
-            <input type="tel" placeholder="ტელეფონი" required>
-            <input type="email" placeholder="ელ-ფოსტა" required>
-            <button type="submit" class="submit-btn">გაგზავნა</button>
-        </form>
     </div>
 
     <script src="script.js"></script>
