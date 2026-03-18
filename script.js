@@ -1,61 +1,55 @@
-// ენების მონაცემები
-const translations = {
-    ka: {
-        "nav-home": "მთავარი",
-        "hero-title": "გლობალური განათლების ქსელი",
-        "hero-sub": "ოქსფორდის პირველი და ერთადერთი ოფიციალური წარმომადგენელი საქართველოში",
-        "prog-title": "საერთაშორისო პროგრამები"
-    },
-    en: {
-        "nav-home": "Home",
-        "hero-title": "Global Education Network",
-        "hero-sub": "Oxford's First and Only Official Representative in Georgia",
-        "prog-title": "International Programs"
-    }
-};
+// Language Toggle Logic
+const langBtn = document.getElementById('lang-toggle');
+let currentLang = 'KA';
 
-let currentLang = 'ka';
-
-// ენის შეცვლა
-document.getElementById('lang-switch').addEventListener('click', () => {
-    currentLang = currentLang === 'ka' ? 'en' : 'ka';
-    document.getElementById('lang-switch').innerText = currentLang === 'ka' ? 'EN' : 'KA';
+langBtn.addEventListener('click', () => {
+    currentLang = currentLang === 'KA' ? 'EN' : 'KA';
+    langBtn.innerText = currentLang === 'KA' ? 'EN' : 'KA';
     
-    document.querySelectorAll('[data-key]').forEach(elem => {
-        const key = elem.getAttribute('data-key');
-        elem.innerText = translations[currentLang][key];
+    document.querySelectorAll('[data-ka]').forEach(el => {
+        el.innerText = currentLang === 'KA' ? el.getAttribute('data-ka') : el.getAttribute('data-en');
     });
 });
 
-// კალათის სისტემა
+// Basket Logic
 let cart = [];
+const cartCount = document.getElementById('cart-count');
+const basketItems = document.getElementById('basket-items');
+
 function addToCart(item) {
-    cart.push(item);
-    updateCartUI();
-    alert(item + " დაემატა კალათაში");
+    if(!cart.includes(item)) {
+        cart.push(item);
+        updateCart();
+        toggleCart(true);
+    }
 }
 
-function updateCartUI() {
-    document.getElementById('cart-count').innerText = cart.length;
+function updateCart() {
+    cartCount.innerText = cart.length;
+    basketItems.innerHTML = cart.map((item, index) => `
+        <div class="cart-item">
+            <span>${item}</span>
+            <button onclick="removeItem(${index})">&times;</button>
+        </div>
+    `).join('');
 }
 
-// მოდალის კონტროლი
-const modal = document.getElementById('cart-modal');
-document.querySelector('.cart-icon').onclick = () => {
-    const list = document.getElementById('cart-items');
-    list.innerHTML = cart.map(item => `<li>${item}</li>`).join('');
-    modal.style.display = 'block';
-};
-
-function closeCart() {
-    modal.style.display = 'none';
+function removeItem(index) {
+    cart.splice(index, 1);
+    updateCart();
 }
 
-// შეკვეთის გაგზავნა (Simulation)
-document.getElementById('order-form').onsubmit = (e) => {
+function toggleCart(forceOpen = false) {
+    const sidebar = document.getElementById('side-basket');
+    if(forceOpen) sidebar.classList.add('active');
+    else sidebar.classList.toggle('active');
+}
+
+// Form Submission Simulation
+document.getElementById('order-form').addEventListener('submit', (e) => {
     e.preventDefault();
-    alert("თქვენი მოთხოვნა გაგზავნილია! ადმინისტრატორი დაგიკავშირდებათ მითითებულ ნომერზე.");
+    alert("მოთხოვნა გაგზავნილია! Global Education Network-ის გუნდი დაგიკავშირდებათ მითითებულ ნომერზე.");
     cart = [];
-    updateCartUI();
-    closeCart();
-};
+    updateCart();
+    toggleCart();
+});
