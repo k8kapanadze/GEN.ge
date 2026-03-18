@@ -9,55 +9,67 @@
 <body>
 
     <nav class="navbar">
-        <div class="logo">
-            <img src="images/logo.png" alt="GEN Logo">
+        <div class="logo-container">
+            <img src="images/logo.png" alt="GEN Logo" class="main-logo">
         </div>
         <ul class="nav-links">
             <li><a href="#mission">მისია</a></li>
-            <li><a href="#programs">საერთაშორისო პროგრამები</a></li>
-            <li><a href="#languages">ენების კურსები</a></li>
-            <li><a href="#university">უნივერსიტეტში ჩაბარება</a></li>
+            <li><a href="#programs">პროგრამები</a></li>
+            <li><a href="#university">უნივერსიტეტი</a></li>
+            <li><a href="#gallery">გალერეა</a></li>
         </ul>
         <div class="lang-switch">
-            <button onclick="setLanguage('ka')">GE</button>
-            <button onclick="setLanguage('en')">EN</button>
+            <button class="active">GE</button>
+            <button>EN</button>
         </div>
     </nav>
 
     <header class="hero">
         <div class="hero-content">
-            <h1>გლობალური განათლების ქსელი</h1>
-            <p class="subtitle">ოქსფორდის პირველი და ერთადერთი ოფიციალური წარმომადგენელი საქართველოში</p>
-            <button class="cta-btn">Apply Now</button>
+            <img src="images/logo.png" class="hero-logo-fade" alt="GEN">
+            <h1>Global Education Network</h1>
+            <p class="oxford-text">ოქსფორდის პირველი და ერთადერთი ოფიციალური წარმომადგენელი საქართველოში</p>
+            <div class="hero-actions">
+                <button class="btn-red">Apply Now</button>
+                <button class="btn-outline">გაიგე მეტი</button>
+            </div>
         </div>
     </header>
 
-    <section id="university" class="consultants-section">
-        <h2>უნივერსიტეტში ჩაბარების მომსახურება</h2>
-        <div class="consultant-grid" id="consultantGrid">
-            <div class="consultant-card available">
-                <div class="img-wrapper">
-                    <img src="images/consultant1.jpg" alt="Consultant 1">
-                    <div class="glow"></div>
-                </div>
-                <h3>კონსულტანტი 1</h3>
-                <button onclick="requestCall('კონსულტანტი 1')">Request a Call</button>
-            </div>
-
-            <div class="consultant-card busy">
-                <div class="img-wrapper">
-                    <img src="images/consultant2.jpg" alt="Consultant 2">
-                </div>
-                <h3>კონსულტანტი 2</h3>
-                <button disabled>ადგილები არ არის</button>
-            </div>
-            
-            <div id="cons-3" class="consultant-card available">
-                </div>
+    <section id="gallery" class="gallery-section">
+        <h2 class="section-title">ჩვენი პროექტები და დელეგაციები</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="images/pic1.jpg" alt="European Parliament"></div>
+            <div class="gallery-item"><img src="images/pic2.jpg" alt="Delegation"></div>
+            <div class="gallery-item"><img src="images/pic3.jpg" alt="TV Appearance"></div>
+            <div class="gallery-item"><img src="images/pic4.jpg" alt="Students"></div>
+            <div class="gallery-item"><img src="images/pic5.jpg" alt="International Summit"></div>
+            <div class="gallery-item"><img src="images/pic6.jpg" alt="Oxford Group"></div>
         </div>
     </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script src="script.js"></script>
+    <section id="university" class="consultants">
+        <h2>უნივერსიტეტში ჩაბარების მომსახურება</h2>
+        <div class="consultant-container">
+            <div class="c-card available">
+                <div class="img-frame">
+                    <img src="images/cons1.jpg" alt="Consultant">
+                    <div class="glow-effect"></div>
+                </div>
+                <h3>კონსულტანტი 1</h3>
+                <span class="status">ხელმისაწვდომია</span>
+                <button onclick="requestCall()">Request a call</button>
+            </div>
+            <div class="c-card busy">
+                <div class="img-frame">
+                    <img src="images/cons2.jpg" alt="Consultant">
+                </div>
+                <h3>კონსულტანტი 2</h3>
+                <span class="status">ადგილები არ არის</span>
+                <button disabled>Unavailable</button>
+            </div>
+        </div>
+    </section>
+
 </body>
 </html>
