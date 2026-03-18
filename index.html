@@ -3,112 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Global Education Network | GEN</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Global Education Network | Oxford Official Representative</title>
+    <meta name="description" content="ოქსფორდის პირველი და ერთადერთი ოფიციალური წარმომადგენელი საქართველოში. საერთაშორისო პროგრამები და ენების კურსები.">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body class="bg-slate-50 font-sans">
+<body>
 
-    <nav class="bg-blue-900 text-white p-4 sticky top-0 z-50 shadow-2xl">
-        <div class="container mx-auto flex justify-between items-center">
-            <div class="flex items-center space-x-8">
-                <img src="images/logo.png" alt="GEN" class="h-14">
-                <ul class="hidden lg:flex space-x-6 text-sm font-bold uppercase tracking-widest">
-                    <li><a href="#home" class="hover:text-rose-600 transition">მთავარი</a></li>
-                    <li><a href="#programs" class="hover:text-rose-600 transition">პროგრამები</a></li>
-                    <li><a href="#languages" class="hover:text-rose-600 transition">კურსები</a></li>
-                    <li><a href="#university" class="hover:text-rose-600 transition">კონსულტაცია</a></li>
-                </ul>
-            </div>
-            <div class="flex items-center space-x-4">
-                <div class="flex bg-blue-800 rounded-full p-1 text-xs">
-                    <button class="px-3 py-1 bg-rose-600 rounded-full">GE</button>
-                    <button class="px-3 py-1 hover:text-rose-400">EN</button>
-                </div>
-                <div class="relative cursor-pointer" onclick="toggleCart()">
-                    <i class="fa-solid fa-cart-shopping text-xl"></i>
-                    <span id="cart-count" class="absolute -top-2 -right-2 bg-rose-600 text-[10px] rounded-full h-4 w-4 flex items-center justify-center">0</span>
-                </div>
+    <nav class="navbar">
+        <div class="logo">GEN LOGO</div>
+        <ul class="nav-links">
+            <li><a href="#home" data-key="nav-home">მთავარი</a></li>
+            <li><a href="#programs" data-key="nav-programs">პროგრამები</a></li>
+            <li><a href="#courses" data-key="nav-courses">კურსები</a></li>
+            <li><a href="#university" data-key="nav-uni">უნივერსიტეტი</a></li>
+            <li><a href="#about" data-key="nav-about">ჩვენს შესახებ</a></li>
+            <li><a href="#contact" data-key="nav-contact">კონტაქტი</a></li>
+        </ul>
+        <div class="nav-actions">
+            <button id="lang-switch">EN</button>
+            <div class="cart-icon">
+                <i class="fas fa-shopping-basket"></i>
+                <span id="cart-count">0</span>
             </div>
         </div>
     </nav>
 
-    <header id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
-        <div class="absolute inset-0 z-0">
-            <img src="images/hero-bg.jpg" class="w-full h-full object-cover scale-110 animate-slow-zoom" alt="Oxford">
-            <div class="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-transparent"></div>
-        </div>
-        <div class="container mx-auto relative z-10 px-6">
-            <div class="max-w-2xl text-white">
-                <h1 class="text-6xl font-black leading-tight mb-4">Global Education <span class="text-rose-600">Network</span></h1>
-                <p class="text-2xl font-light border-l-4 border-rose-600 pl-6 mb-8 italic">
-                    ოქსფორდის პირველი და ერთადერთი ოფიციალური წარმომადგენელი საქართველოში
-                </p>
-                <div class="flex space-x-4">
-                    <a href="#programs" class="bg-rose-600 hover:bg-rose-700 px-8 py-4 rounded-lg font-bold transition transform hover:-translate-y-1">პროგრამები</a>
-                    <a href="#contact" class="bg-white/10 hover:bg-white/20 backdrop-blur-md px-8 py-4 rounded-lg font-bold transition">კონტაქტი</a>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <section id="university" class="py-24 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-black text-center mb-16 text-blue-900">უნივერსიტეტში ჩაბარების მომსახურება</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-                <div class="text-center group">
-                    <div class="relative w-56 h-56 mx-auto mb-6">
-                        <div class="absolute inset-0 rounded-full border-4 border-emerald-400 animate-ping opacity-20"></div>
-                        <img src="images/cons1.jpg" class="w-full h-full rounded-full object-cover border-4 border-emerald-400 shadow-2xl transition group-hover:scale-105">
-                        <div class="absolute bottom-4 right-4 bg-emerald-500 h-6 w-6 rounded-full border-4 border-white"></div>
-                    </div>
-                    <h3 class="text-xl font-bold">კონსულტანტი 1</h3>
-                    <p class="text-emerald-500 font-bold mb-4 italic">Available</p>
-                    <button class="bg-blue-900 text-white px-8 py-2 rounded-full hover:bg-rose-600 transition">Request a call</button>
-                </div>
-
-                <div class="text-center opacity-40 grayscale">
-                    <div class="w-56 h-56 mx-auto mb-6">
-                        <img src="images/cons2.jpg" class="w-full h-full rounded-full object-cover border-4 border-slate-300">
-                    </div>
-                    <h3 class="text-xl font-bold">კონსულტანტი 2</h3>
-                    <p class="text-slate-500 font-bold mb-4 italic">No Vacancies</p>
-                    <button disabled class="bg-slate-300 text-white px-8 py-2 rounded-full cursor-not-allowed">Unavailable</button>
-                </div>
-
-                <div class="text-center group">
-                    <div class="relative w-56 h-56 mx-auto mb-6">
-                        <div class="absolute inset-0 rounded-full border-4 border-emerald-400 animate-ping opacity-20"></div>
-                        <img src="images/cons3.jpg" class="w-full h-full rounded-full object-cover border-4 border-emerald-400 shadow-2xl transition group-hover:scale-105">
-                        <div class="absolute bottom-4 right-4 bg-emerald-500 h-6 w-6 rounded-full border-4 border-white"></div>
-                    </div>
-                    <h3 class="text-xl font-bold">კონსულტანტი 3</h3>
-                    <p class="text-emerald-500 font-bold mb-4 italic">Available</p>
-                    <button class="bg-blue-900 text-white px-8 py-2 rounded-full hover:bg-rose-600 transition">Request a call</button>
-                </div>
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 data-key="hero-title">გლობალური განათლების ქსელი</h1>
+            <p class="sub-tagline" data-key="hero-sub">ოქსფორდის პირველი და ერთადერთი ოფიციალური წარმომადგენელი საქართველოში</p>
+            <div class="hero-buttons">
+                <a href="#mission" class="btn">Mission</a>
+                <a href="#programs" class="btn">International Programs</a>
+                <a href="#courses" class="btn">Language Courses</a>
             </div>
         </div>
     </section>
 
-    <div id="cart-sidebar" class="fixed right-0 top-0 h-full w-80 bg-white shadow-2xl z-[100] transform translate-x-full transition-transform duration-300 p-6">
-        <div class="flex justify-between items-center mb-8 border-b pb-4">
-            <h2 class="text-xl font-bold text-blue-900">თქვენი კალათა</h2>
-            <button onclick="toggleCart()" class="text-2xl">&times;</button>
+    <section id="programs" class="section">
+        <h2 class="section-title" data-key="prog-title">საერთაშორისო პროგრამები</h2>
+        <div class="grid-container">
+            <div class="card">
+                <img src="uk.jpg" alt="UK">
+                <h3>United Kingdom</h3>
+                <button class="apply-btn" onclick="addToCart('UK Program')">Apply Now</button>
+            </div>
+            <div class="card">
+                <img src="usa.jpg" alt="USA">
+                <h3>USA</h3>
+                <button class="apply-btn" onclick="addToCart('USA Program')">Apply Now</button>
+            </div>
+            <div class="card">
+                <img src="europe.jpg" alt="Europe">
+                <h3>Europe</h3>
+                <button class="apply-btn" onclick="addToCart('Europe Program')">Apply Now</button>
+            </div>
+            <div class="card">
+                <img src="asia.jpg" alt="Asia">
+                <h3>Asia</h3>
+                <button class="apply-btn" onclick="addToCart('Asia Program')">Apply Now</button>
+            </div>
         </div>
-        <div id="cart-items" class="space-y-4 overflow-y-auto h-[60vh]">
-            <p class="text-slate-400 text-center">კალათა ცარიელია</p>
+    </section>
+
+    <section id="university" class="section bg-light">
+        <h2 class="section-title">უნივერსიტეტში ჩაბარება</h2>
+        <div class="consultants-grid">
+            <div class="consultant available">
+                <h4>გიორგი ალანია</h4>
+                <p>სტატუსი: ხელმისაწვდომია</p>
+                <button onclick="window.location.href='#contact'">Request a Call</button>
+            </div>
+            <div class="consultant unavailable">
+                <h4>ანა ბერიძე</h4>
+                <p>სტატუსი: ადგილები არ არის</p>
+                <button disabled>Full</button>
+            </div>
+            <div class="consultant available">
+                <h4>დავით მესხი</h4>
+                <p>სტატუსი: ხელმისაწვდომია</p>
+                <button onclick="window.location.href='#contact'">Request a Call</button>
+            </div>
         </div>
-        <div class="absolute bottom-0 left-0 w-full p-6 bg-slate-50 border-t">
-            <button class="w-full bg-rose-600 text-white py-4 rounded-lg font-bold hover:bg-rose-700 transition">გაფორმება</button>
+    </section>
+
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <h3>თქვენი შერჩეული პროგრამები</h3>
+            <ul id="cart-items"></ul>
+            <form id="order-form">
+                <input type="text" placeholder="სახელი" required>
+                <input type="email" placeholder="ელ-ფოსტა" required>
+                <input type="tel" placeholder="ტელეფონი" required>
+                <button type="submit" class="btn-submit">შეკვეთის გაგზავნა</button>
+                <button type="button" onclick="closeCart()" class="btn-close">დახურვა</button>
+            </form>
         </div>
     </div>
 
-    <script>
-        function toggleCart() {
-            const sidebar = document.getElementById('cart-sidebar');
-            sidebar.classList.toggle('translate-x-full');
-        }
-    </script>
+    <footer id="contact">
+        <div class="footer-grid">
+            <div>
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-envelope"></i> info@gen.ge</p>
+                <p><i class="fas fa-phone"></i> +995 555 XX XX XX</p>
+            </div>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
