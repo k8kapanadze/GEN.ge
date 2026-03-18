@@ -14,9 +14,9 @@
         </div>
         <ul class="nav-links">
             <li><a href="#mission">მისია</a></li>
-            <li><a href="#programs">პროგრამები</a></li>
-            <li><a href="#university">უნივერსიტეტი</a></li>
-            <li><a href="#gallery">გალერეა</a></li>
+            <li><a href="#programs">საერთაშორისო პროგრამები</a></li>
+            <li><a href="#languages">ენების კურსები</a></li>
+            <li><a href="#university">უნივერსიტეტში ჩაბარება</a></li>
         </ul>
         <div class="lang-switch">
             <button class="active">GE</button>
@@ -25,48 +25,34 @@
     </nav>
 
     <header class="hero">
-        <div class="hero-content">
-            <img src="images/logo.png" class="hero-logo-fade" alt="GEN">
-            <h1>Global Education Network</h1>
-            <p class="oxford-text">ოქსფორდის პირველი და ერთადერთი ოფიციალური წარმომადგენელი საქართველოში</p>
-            <div class="hero-actions">
-                <button class="btn-red">Apply Now</button>
-                <button class="btn-outline">გაიგე მეტი</button>
+        <div class="hero-overlay">
+            <div class="hero-content">
+                <h1>Global Education Network</h1>
+                <p class="oxford-badge">ოქსფორდის პირველი და ერთადერთი ოფიციალური წარმომადგენელი საქართველოში</p>
+                <div class="hero-btns">
+                    <button class="btn-red">Apply Now</button>
+                </div>
             </div>
         </div>
     </header>
 
-    <section id="gallery" class="gallery-section">
-        <h2 class="section-title">ჩვენი პროექტები და დელეგაციები</h2>
-        <div class="gallery-grid">
-            <div class="gallery-item"><img src="images/pic1.jpg" alt="European Parliament"></div>
-            <div class="gallery-item"><img src="images/pic2.jpg" alt="Delegation"></div>
-            <div class="gallery-item"><img src="images/pic3.jpg" alt="TV Appearance"></div>
-            <div class="gallery-item"><img src="images/pic4.jpg" alt="Students"></div>
-            <div class="gallery-item"><img src="images/pic5.jpg" alt="International Summit"></div>
-            <div class="gallery-item"><img src="images/pic6.jpg" alt="Oxford Group"></div>
-        </div>
-    </section>
-
     <section id="university" class="consultants">
         <h2>უნივერსიტეტში ჩაბარების მომსახურება</h2>
-        <div class="consultant-container">
+        <div class="consultant-grid">
             <div class="c-card available">
-                <div class="img-frame">
-                    <img src="images/cons1.jpg" alt="Consultant">
-                    <div class="glow-effect"></div>
-                </div>
+                <div class="img-frame"><img src="images/cons1.jpg" alt="Consultant 1"><div class="glow"></div></div>
                 <h3>კონსულტანტი 1</h3>
-                <span class="status">ხელმისაწვდომია</span>
-                <button onclick="requestCall()">Request a call</button>
+                <button onclick="alert('ზარი მოთხოვნილია!')">Request a Call</button>
             </div>
             <div class="c-card busy">
-                <div class="img-frame">
-                    <img src="images/cons2.jpg" alt="Consultant">
-                </div>
+                <div class="img-frame"><img src="images/cons2.jpg" alt="Consultant 2"></div>
                 <h3>კონსულტანტი 2</h3>
-                <span class="status">ადგილები არ არის</span>
                 <button disabled>Unavailable</button>
+            </div>
+            <div class="c-card available">
+                <div class="img-frame"><img src="images/cons3.jpg" alt="Consultant 3"><div class="glow"></div></div>
+                <h3>კონსულტანტი 3</h3>
+                <button onclick="alert('ზარი მოთხოვნილია!')">Request a Call</button>
             </div>
         </div>
     </section>
