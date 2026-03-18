@@ -1,75 +1,57 @@
 :root {
-    --gen-blue: #1a3a6d; /* მუქი ლურჯი ლოგოდან */
-    --gen-red: #d62828;  /* წითელი ლოგოდან */
+    --dark-blue: #0a192f;
+    --gen-red: #d62828;
     --white: #ffffff;
 }
 
-body {
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f8f9fa;
+body { margin: 0; font-family: sans-serif; background: #f4f4f4; }
+
+.navbar {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 10px 5%; background: var(--dark-blue); color: white;
+    position: sticky; top: 0; z-index: 1000;
 }
 
-/* Hero Section - ფონი არის ბავშვები ბიგ ბენთან */
+.main-logo { height: 60px; }
+.nav-links { display: flex; list-style: none; gap: 20px; }
+.nav-links a { color: white; text-decoration: none; font-weight: bold; }
+
 .hero {
-    height: 100vh;
-    background: linear-gradient(rgba(26, 58, 109, 0.75), rgba(214, 40, 40, 0.4)), 
-                url('images/hero-bg.jpg') no-repeat center center/cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--white);
-    text-align: center;
+    height: 80vh;
+    background: url('images/hero-bg.jpg') no-repeat center center/cover;
 }
 
-.oxford-text {
-    font-size: 1.8rem;
-    font-weight: 600;
-    border-top: 3px solid var(--gen-red);
-    padding-top: 15px;
-    margin-top: 20px;
-    letter-spacing: 1px;
+.hero-overlay {
+    height: 100%; width: 100%;
+    background: rgba(10, 25, 47, 0.7);
+    display: flex; align-items: center; justify-content: center;
+    text-align: center; color: white;
 }
 
-/* გალერეის დიზაინი */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 15px;
-    padding: 40px;
-}
-
-.gallery-item img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 10px;
-    transition: transform 0.3s;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-.gallery-item img:hover {
-    transform: scale(1.05);
-}
-
-/* კონსულტანტების Glow ეფექტი */
-.c-card.available .img-frame {
-    border: 4px solid #00ff88;
-    position: relative;
-    box-shadow: 0 0 20px rgba(0, 255, 136, 0.6);
-}
-
-.c-card.busy .img-frame {
-    filter: grayscale(1) brightness(0.4);
+.oxford-badge {
+    font-size: 1.5rem; border-top: 3px solid var(--gen-red);
+    padding-top: 10px; margin-top: 20px;
 }
 
 .btn-red {
-    background-color: var(--gen-red);
-    color: white;
-    padding: 15px 35px;
-    border: none;
-    border-radius: 30px;
-    font-weight: bold;
-    cursor: pointer;
-    text-transform: uppercase;
+    background: var(--gen-red); color: white; border: none;
+    padding: 15px 30px; border-radius: 5px; cursor: pointer; font-size: 1.1rem;
 }
+
+.consultant-grid { display: flex; justify-content: center; gap: 30px; padding: 50px; }
+
+.c-card { background: white; padding: 20px; border-radius: 10px; text-align: center; width: 250px; }
+
+.img-frame { width: 150px; height: 150px; margin: 0 auto 15px; position: relative; }
+.img-frame img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
+
+.available .img-frame { border: 4px solid #00ff88; box-shadow: 0 0 15px #00ff88; }
+.busy { opacity: 0.5; filter: grayscale(1); }
+
+.glow {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    border-radius: 50%; box-shadow: inset 0 0 20px #00ff88;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse { 0% {opacity: 0.4;} 50% {opacity: 1;} 100% {opacity: 0.4;} }
