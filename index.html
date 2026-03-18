@@ -4,55 +4,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Global Education Network</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="bg-gray-50 text-blue-900">
 
-    <nav class="navbar">
-        <div class="logo-container">
-            <img src="images/logo.png" alt="GEN Logo" class="main-logo">
-        </div>
-        <ul class="nav-links">
-            <li><a href="#mission">მისია</a></li>
-            <li><a href="#programs">საერთაშორისო პროგრამები</a></li>
-            <li><a href="#languages">ენების კურსები</a></li>
-            <li><a href="#university">უნივერსიტეტში ჩაბარება</a></li>
-        </ul>
-        <div class="lang-switch">
-            <button class="active">GE</button>
-            <button>EN</button>
+    <nav class="bg-[#0a192f] text-white p-4 sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <img src="images/logo.png" alt="GEN Logo" class="h-16">
+            <ul class="hidden md:flex space-x-6 font-semibold uppercase text-sm">
+                <li><a href="#mission" class="hover:text-rose-600">მისია</a></li>
+                <li><a href="#programs" class="hover:text-rose-600">პროგრამები</a></li>
+                <li><a href="#languages" class="hover:text-rose-600">ენის კურსები</a></li>
+                <li><a href="#university" class="hover:text-rose-600">უნივერსიტეტი</a></li>
+            </ul>
+            <div class="flex items-center space-x-4">
+                <button class="bg-rose-600 px-3 py-1 rounded text-xs">GE</button>
+                <button class="border border-white px-3 py-1 rounded text-xs hover:bg-white hover:text-blue-900">EN</button>
+            </div>
         </div>
     </nav>
 
-    <header class="hero">
-        <div class="hero-overlay">
-            <div class="hero-content">
-                <h1>Global Education Network</h1>
-                <p class="oxford-badge">ოქსფორდის პირველი და ერთადერთი ოფიციალური წარმომადგენელი საქართველოში</p>
-                <div class="hero-btns">
-                    <button class="btn-red">Apply Now</button>
-                </div>
-            </div>
+    <header class="relative h-[80vh] flex items-center justify-center overflow-hidden">
+        <img src="images/hero-bg.jpg" class="absolute w-full h-full object-cover zoom-effect" alt="Oxford">
+        <div class="absolute inset-0 bg-blue-900/60"></div>
+        <div class="relative z-10 text-center text-white px-4">
+            <h1 class="text-5xl md:text-7xl font-bold mb-4">Global Education Network</h1>
+            <div class="h-1 w-32 bg-rose-600 mx-auto mb-6"></div>
+            <p class="text-xl md:text-2xl font-light italic">ოქსფორდის პირველი და ერთადერთი ოფიციალური წარმომადგენელი საქართველოში</p>
+            <button class="mt-8 bg-rose-600 hover:bg-rose-700 text-white font-bold py-3 px-8 rounded-full transition-all transform hover:scale-105 shadow-xl">
+                APPLY NOW
+            </button>
         </div>
     </header>
 
-    <section id="university" class="consultants">
-        <h2>უნივერსიტეტში ჩაბარების მომსახურება</h2>
-        <div class="consultant-grid">
-            <div class="c-card available">
-                <div class="img-frame"><img src="images/cons1.jpg" alt="Consultant 1"><div class="glow"></div></div>
-                <h3>კონსულტანტი 1</h3>
-                <button onclick="alert('ზარი მოთხოვნილია!')">Request a Call</button>
-            </div>
-            <div class="c-card busy">
-                <div class="img-frame"><img src="images/cons2.jpg" alt="Consultant 2"></div>
-                <h3>კონსულტანტი 2</h3>
-                <button disabled>Unavailable</button>
-            </div>
-            <div class="c-card available">
-                <div class="img-frame"><img src="images/cons3.jpg" alt="Consultant 3"><div class="glow"></div></div>
-                <h3>კონსულტანტი 3</h3>
-                <button onclick="alert('ზარი მოთხოვნილია!')">Request a Call</button>
+    <section id="university" class="py-20 bg-white">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-12 text-blue-900 uppercase">უნივერსიტეტში ჩაბარების მომსახურება</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 px-10">
+                
+                <div class="consultant-card text-center group">
+                    <div class="relative w-48 h-48 mx-auto mb-4 rounded-full overflow-hidden border-4 border-green-400 glow-green shadow-2xl">
+                        <img src="images/cons1.jpg" class="w-full h-full object-cover" alt="Consultant">
+                        <div class="absolute inset-0 bg-green-400/10 animate-pulse"></div>
+                    </div>
+                    <h3 class="text-xl font-bold">კონსულტანტი 1</h3>
+                    <p class="text-green-500 font-semibold mb-4 italic">Available</p>
+                    <button class="bg-blue-900 text-white px-6 py-2 rounded hover:bg-rose-600 transition">Request a call</button>
+                </div>
+
+                <div class="consultant-card text-center opacity-40 grayscale">
+                    <div class="w-48 h-48 mx-auto mb-4 rounded-full overflow-hidden border-4 border-gray-400 shadow-inner">
+                        <img src="images/cons2.jpg" class="w-full h-full object-cover" alt="Consultant">
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-600">კონსულტანტი 2</h3>
+                    <p class="text-gray-500 font-semibold mb-4 italic">No vacancies</p>
+                    <button disabled class="bg-gray-400 text-white px-6 py-2 rounded cursor-not-allowed">Unavailable</button>
+                </div>
+
+                <div class="consultant-card text-center group">
+                    <div class="relative w-48 h-48 mx-auto mb-4 rounded-full overflow-hidden border-4 border-green-400 glow-green shadow-2xl">
+                        <img src="images/cons3.jpg" class="w-full h-full object-cover" alt="Consultant">
+                        <div class="absolute inset-0 bg-green-400/10 animate-pulse"></div>
+                    </div>
+                    <h3 class="text-xl font-bold">კონსულტანტი 3</h3>
+                    <p class="text-green-500 font-semibold mb-4 italic">Available</p>
+                    <button class="bg-blue-900 text-white px-6 py-2 rounded hover:bg-rose-600 transition">Request a call</button>
+                </div>
+
             </div>
         </div>
     </section>
