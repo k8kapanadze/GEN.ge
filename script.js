@@ -1,55 +1,28 @@
-// Language Toggle Logic
-const langBtn = document.getElementById('lang-toggle');
-let currentLang = 'KA';
+// კალათის გახსნა/დახურვა
+function toggleCart() {
+    document.getElementById('side-cart').classList.toggle('active');
+}
 
-langBtn.addEventListener('click', () => {
-    currentLang = currentLang === 'KA' ? 'EN' : 'KA';
-    langBtn.innerText = currentLang === 'KA' ? 'EN' : 'KA';
-    
-    document.querySelectorAll('[data-ka]').forEach(el => {
-        el.innerText = currentLang === 'KA' ? el.getAttribute('data-ka') : el.getAttribute('data-en');
-    });
-});
+// დამატების ლოგიკა
+let items = [];
+function addToCart(name) {
+    items.push(name);
+    document.getElementById('cart-count').innerText = items.length;
+    renderCart();
+}
 
-// Basket Logic
-let cart = [];
-const cartCount = document.getElementById('cart-count');
-const basketItems = document.getElementById('basket-items');
+function renderCart() {
+    const container = document.getElementById('cart-content');
+    container.innerHTML = items.map(i => `<div class="cart-row">${i}</div>`).join('');
+}
 
-function addToCart(item) {
-    if(!cart.includes(item)) {
-        cart.push(item);
-        updateCart();
-        toggleCart(true);
+// Scroll Effect Navbar-ისთვის
+window.addEventListener('scroll', () => {
+    const nav = document.querySelector('.navbar');
+    if(window.scrollY > 50) {
+        nav.style.padding = "10px 50px";
+        nav.style.background = "rgba(5, 10, 24, 0.95)";
+    } else {
+        nav.style.padding = "20px 50px";
     }
-}
-
-function updateCart() {
-    cartCount.innerText = cart.length;
-    basketItems.innerHTML = cart.map((item, index) => `
-        <div class="cart-item">
-            <span>${item}</span>
-            <button onclick="removeItem(${index})">&times;</button>
-        </div>
-    `).join('');
-}
-
-function removeItem(index) {
-    cart.splice(index, 1);
-    updateCart();
-}
-
-function toggleCart(forceOpen = false) {
-    const sidebar = document.getElementById('side-basket');
-    if(forceOpen) sidebar.classList.add('active');
-    else sidebar.classList.toggle('active');
-}
-
-// Form Submission Simulation
-document.getElementById('order-form').addEventListener('submit', (e) => {
-    e.preventDefault();
-    alert("მოთხოვნა გაგზავნილია! Global Education Network-ის გუნდი დაგიკავშირდებათ მითითებულ ნომერზე.");
-    cart = [];
-    updateCart();
-    toggleCart();
 });
