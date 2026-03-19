@@ -3,353 +3,272 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Global Education Network | Oxford Representative Georgia</title>
+    <title>GEN | Global Education Network</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    
     <style>
-        /* --- BRAND IDENTITY & VARIABLES --- */
         :root {
-            --primary-blue: #0a2351;
-            --accent-red: #d32f2f;
-            --light-bg: #f8f9fa;
+            --brand-blue: #0a2351;
+            --brand-red: #d32f2f;
+            --brand-light: #f4f4f4;
             --white: #ffffff;
-            --text-dark: #1a1a1a;
-            --transition: all 0.3s ease;
+            --text-main: #1a1a1a;
+            --serif: 'Playfair Display', serif;
+            --sans: 'Inter', sans-serif;
+            --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--sans); background: var(--white); color: var(--text-main); overflow-x: hidden; }
 
-        body { background-color: var(--white); color: var(--text-dark); line-height: 1.6; }
+        /* --- Editorial Typography --- */
+        h1, h2, h3 { font-family: var(--serif); font-weight: 700; }
 
-        /* --- NAVIGATION --- */
+        /* --- Navigation --- */
         nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 5%;
-            background: var(--white);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 5%; background: rgba(255,255,255,0.95);
+            position: fixed; width: 100%; top: 0; z-index: 1000;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
         }
-
-        .logo img { height: 60px; }
-
-        .nav-links { display: flex; list-style: none; gap: 2rem; align-items: center; }
-        .nav-links a { text-decoration: none; color: var(--primary-blue); font-weight: 600; transition: var(--transition); }
-        .nav-links a:hover { color: var(--accent-red); }
-
-        .lang-switch {
-            cursor: pointer;
-            padding: 5px 12px;
-            border: 2px solid var(--primary-blue);
-            border-radius: 20px;
-            font-weight: bold;
-            color: var(--primary-blue);
-        }
-
-        /* --- HERO SECTION --- */
-        .hero {
-            height: 80vh;
-            background: linear-gradient(rgba(10, 35, 81, 0.6), rgba(10, 35, 81, 0.6)), url('hero-bg.jpg.jpeg');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: var(--white);
-            padding: 0 10%;
-        }
-
-        .hero h1 { font-size: 3.5rem; margin-bottom: 1rem; }
-        .hero p { font-size: 1.5rem; margin-bottom: 2rem; font-weight: 300; }
-
-        /* --- INTERACTIVE OVERLAY BLOCKS --- */
-        .overlay-container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            width: 80%;
-            margin: -50px auto 50px;
-            z-index: 10;
-        }
-
-        .info-card {
-            background: var(--white);
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            text-align: center;
-            transition: var(--transition);
-            border-bottom: 4px solid var(--primary-blue);
-        }
-
-        .info-card:hover { transform: translateY(-10px); border-color: var(--accent-red); }
-        .info-card i { font-size: 2.5rem; color: var(--accent-red); margin-bottom: 15px; }
-
-        /* --- PROGRAMS SECTION --- */
-        .section-title { text-align: center; margin: 4rem 0 2rem; font-size: 2.5rem; color: var(--primary-blue); }
+        .logo img { height: 50px; }
+        .nav-right { display: flex; align-items: center; gap: 30px; }
+        .nav-links { display: flex; list-style: none; gap: 25px; }
+        .nav-links a { text-decoration: none; color: var(--brand-blue); font-weight: 600; font-size: 0.9rem; transition: var(--transition); }
+        .nav-links a:hover { color: var(--brand-red); }
         
-        .destinations {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            padding: 0 5%;
+        .basket-icon { position: relative; cursor: pointer; font-size: 1.2rem; }
+        .basket-count { 
+            position: absolute; top: -8px; right: -10px; 
+            background: var(--brand-red); color: white; 
+            font-size: 0.7rem; padding: 2px 6px; border-radius: 50%; 
         }
 
-        .dest-card {
-            position: relative;
-            height: 300px;
-            border-radius: 15px;
-            overflow: hidden;
-            cursor: pointer;
+        /* --- Hero Section --- */
+        .hero {
+            height: 100vh; display: flex; align-items: center;
+            background: linear-gradient(rgba(10,35,81,0.7), rgba(10,35,81,0.4)), url('hero-bg.jpg.jpeg');
+            background-size: cover; background-position: center;
+            color: var(--white); padding: 0 5%; margin-top: 0;
         }
+        .hero-content { max-width: 800px; animation: fadeInUp 1s ease; }
+        .hero h1 { font-size: 4.5rem; line-height: 1.1; margin-bottom: 20px; }
+        .hero p { font-size: 1.2rem; margin-bottom: 30px; opacity: 0.9; border-left: 3px solid var(--brand-red); padding-left: 20px; }
 
-        .dest-card img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition); }
-        .dest-card:hover img { scale: 1.1; }
-        .dest-overlay {
-            position: absolute; inset: 0;
-            background: linear-gradient(transparent, rgba(0,0,0,0.8));
-            display: flex; align-items: flex-end; padding: 20px;
-            color: white; font-size: 1.5rem; font-weight: bold;
-        }
-
-        /* --- MENTORSHIP PANEL (Availability Logic) --- */
-        .mentors {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            padding: 0 5%;
-        }
-
-        .mentor-card {
-            background: #fff;
-            border-radius: 15px;
-            padding: 20px;
+        /* --- Stats Block --- */
+        .stats {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            background: var(--brand-blue); color: white; padding: 40px 5%;
             text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
+        .stat-item h2 { font-size: 3rem; color: var(--brand-red); }
 
-        .mentor-card.unavailable {
-            filter: grayscale(1);
-            opacity: 0.7;
-            pointer-events: none;
+        /* --- Programs (Editorial Grid) --- */
+        .section-padding { padding: 100px 5%; }
+        .section-header { margin-bottom: 50px; }
+        .section-header h2 { font-size: 3rem; color: var(--brand-blue); }
+
+        .programs-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;
         }
-
-        .status-badge {
-            display: inline-block;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            margin-bottom: 10px;
+        .program-card {
+            background: var(--brand-light); border-radius: 0; overflow: hidden;
+            transition: var(--transition); border: 1px solid transparent;
         }
-        .status-available { background: #e8f5e9; color: #2e7d32; }
-        .status-booked { background: #ffebee; color: #c62828; }
+        .program-card:hover { transform: translateY(-10px); border-color: var(--brand-blue); }
+        .program-img { height: 400px; overflow: hidden; position: relative; }
+        .program-img img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition); }
+        .program-card:hover img { transform: scale(1.05); }
+        .program-info { padding: 25px; }
+        .program-info h3 { margin-bottom: 15px; font-size: 1.5rem; }
 
-        /* --- BUTTONS --- */
+        /* --- Mentor Logic (Greyscale/Active) --- */
+        .mentors-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .mentor-card {
+            padding: 40px; text-align: center; border: 1px solid #eee; transition: var(--transition);
+        }
+        .mentor-card.booked { filter: grayscale(1); opacity: 0.5; cursor: not-allowed; }
+        .status-dot { 
+            display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 5px;
+        }
+        .status-active { background: #4CAF50; }
+        .status-busy { background: #f44336; }
+
+        /* --- Buttons --- */
         .btn {
-            background: var(--primary-blue);
-            color: white;
-            padding: 12px 25px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: var(--transition);
-            text-transform: uppercase;
+            display: inline-block; padding: 15px 35px; background: var(--brand-blue);
+            color: white; text-decoration: none; font-weight: 600;
+            border: none; cursor: pointer; transition: var(--transition);
+            font-family: var(--sans); text-transform: uppercase; letter-spacing: 1px;
         }
-        .btn:hover { background: var(--accent-red); }
+        .btn:hover { background: var(--brand-red); }
+        .btn-outline { background: transparent; border: 2px solid var(--brand-blue); color: var(--brand-blue); }
 
-        /* --- GALLERY SECTION --- */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 15px;
-            padding: 0 5%;
-        }
-        .gallery-grid img { width: 100%; height: 250px; object-fit: cover; border-radius: 10px; }
-
-        /* --- FOOTER & CONTACT --- */
-        footer {
-            background: var(--primary-blue);
-            color: white;
-            padding: 4rem 5% 2rem;
-            margin-top: 5rem;
+        /* --- Animations --- */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-        }
-
-        .cta-fixed {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: var(--accent-red);
-            color: white;
-            width: 60px; height: 60px;
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-            cursor: pointer;
-            z-index: 999;
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .mentors-container { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
         }
     </style>
 </head>
 <body>
 
+    <script>
+        const assets = {
+            hero: 'hero-bg.jpg.jpeg',
+            programs: ['pic1.jpg.jpeg', 'pic3.jpg.jpeg', 'cons1.jpg.jpeg'],
+            gallery: ['cons2.jpg.jpeg', 'pic2.jpg.jpeg'],
+            logo: 'logo.png.jpg'
+        };
+    </script>
+
     <nav>
-        <div class="logo">
-            <img src="logo.png.jpg" alt="GEN Logo">
+        <div class="logo"><img src="logo.png.jpg" alt="GEN Logo"></div>
+        <div class="nav-right">
+            <ul class="nav-links">
+                <li><a href="#about" data-ge="ჩვენს შესახებ" data-en="About Us">ჩვენს შესახებ</a></li>
+                <li><a href="#programs" data-ge="პროგრამები" data-en="Programs">პროგრამები</a></li>
+                <li><a href="#mentors" data-ge="მენტორინგი" data-en="Mentorship">მენტორინგი</a></li>
+                <li><a href="#contact" data-ge="კონტაქტი" data-en="Contact">კონტაქტი</a></li>
+            </ul>
+            <div class="basket-icon" onclick="toggleBasket()">
+                <i class="fas fa-shopping-bag"></i>
+                <span class="basket-count" id="cart-count">0</span>
+            </div>
+            <button class="btn-outline" style="padding: 5px 15px;" onclick="changeLang()" id="langBtn">EN</button>
         </div>
-        <ul class="nav-links">
-            <li><a href="#programs" id="nav-programs">პროგრამები</a></li>
-            <li><a href="#mentors" id="nav-mentors">მენტორინგი</a></li>
-            <li><a href="#academy" id="nav-academy">აკადემია</a></li>
-            <li><a href="#gallery" id="nav-gallery">გალერეა</a></li>
-            <li><div class="lang-switch" onclick="toggleLanguage()">EN</div></li>
-        </ul>
     </nav>
 
-    <header class="hero">
-        <h1 id="hero-title">გლობალური განათლების ქსელი</h1>
-        <p id="hero-sub">ოქსფორდის პირველი და ერთადერთი ოფიციალური წარმომადგენელი საქართველოში</p>
-        <button class="btn" onclick="openApply()">რეგისტრაცია / Apply</button>
-    </header>
+    <section class="hero">
+        <div class="hero-content">
+            <h1 id="hero-title">გლობალური განათლების ქსელი</h1>
+            <p id="hero-sub">ოქსფორდის პირველი და ერთადერთი ოფიციალური წარმომადგენელი საქართველოში. ჩვენ ვაშენებთ ხიდს თქვენსა და მსოფლიოს წამყვან უნივერსიტეტებს შორის.</p>
+            <a href="#programs" class="btn" id="hero-btn">აღმოაჩინე პროგრამები</a>
+        </div>
+    </section>
 
-    <div class="overlay-container">
-        <div class="info-card">
-            <i class="fas fa-eye"></i>
-            <h3 id="card-1-title">ხედვა და მისია</h3>
-            <p>აკადემიური ბრწყინვალება და ინოვაცია.</p>
-        </div>
-        <div class="info-card">
-            <i class="fas fa-globe"></i>
-            <h3 id="card-2-title">გლობალური პროგრამები</h3>
-            <p>ჩაირიცხეთ მსოფლიოს წამყვან უნივერსიტეტებში.</p>
-        </div>
-        <div class="info-card">
-            <i class="fas fa-graduation-cap"></i>
-            <h3 id="card-3-title">ენობრივი აკადემია</h3>
-            <p>IELTS და ბიზნეს ინგლისურის კურსები.</p>
-        </div>
+    <div class="stats">
+        <div class="stat-item"><h2>500+</h2><p>სტუდენტი</p></div>
+        <div class="stat-item"><h2>15+</h2><p>პარტნიორი ქვეყანა</p></div>
+        <div class="stat-item"><h2>100%</h2><p>წარმატება</p></div>
     </div>
 
-    <section id="programs">
-        <h2 class="section-title" id="title-programs">საერთაშორისო მიმართულებები</h2>
-        <div class="destinations">
-            <div class="dest-card">
-                <img src="pic1.jpg.jpeg" alt="UK">
-                <div class="dest-overlay">United Kingdom</div>
+    <section id="programs" class="section-padding">
+        <div class="section-header">
+            <h2 id="prog-title">საერთაშორისო პროგრამები</h2>
+        </div>
+        <div class="programs-grid">
+            <div class="program-card">
+                <div class="program-img"><img src="pic1.jpg.jpeg" alt="Oxford"></div>
+                <div class="program-info">
+                    <h3>Oxford Summer Courses</h3>
+                    <p>ექსკლუზიური აკადემიური გამოცდილება დიდი ბრიტანეთის გულში.</p><br>
+                    <button class="btn" onclick="addToCart('Oxford Summer')">კალათაში დამატება</button>
+                </div>
             </div>
-            <div class="dest-card">
-                <img src="pic3.jpg.jpeg" alt="USA">
-                <div class="dest-overlay">USA / International</div>
+            <div class="program-card">
+                <div class="program-img"><img src="pic3.jpg.jpeg" alt="USA"></div>
+                <div class="program-info">
+                    <h3>Ivy League Tour</h3>
+                    <p>სტრატეგიული ვიზიტი აშშ-ს საუკეთესო უნივერსიტეტებში.</p><br>
+                    <button class="btn" onclick="addToCart('Ivy League Tour')">კალათაში დამატება</button>
+                </div>
             </div>
-            <div class="dest-card">
-                <img src="cons1.jpg.jpeg" alt="Europe">
-                <div class="dest-overlay">Europe</div>
+            <div class="program-card">
+                <div class="program-img"><img src="cons1.jpg.jpeg" alt="Europe"></div>
+                <div class="program-info">
+                    <h3>EU Institutions Visit</h3>
+                    <p>სასწავლო ვიზიტი სტრასბურგსა და ბრიუსელში.</p><br>
+                    <button class="btn" onclick="addToCart('EU Visit')">კალათაში დამატება</button>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="mentors">
-        <h2 class="section-title" id="title-mentors">აკადემიური გზამკვლევი</h2>
-        <div class="mentors">
+    <section id="mentors" class="section-padding" style="background: var(--brand-light);">
+        <div class="section-header">
+            <h2 id="mentor-title">აკადემიური მენტორინგი</h2>
+        </div>
+        <div class="mentors-container">
             <div class="mentor-card">
-                <span class="status-badge status-available">Available</span>
-                <h3>გიორგი მ.</h3>
-                <p>Ivy League Specialist</p>
-                <button class="btn" style="margin-top:15px">Request a Call</button>
+                <h3>მარიამი</h3>
+                <p>Oxford Admissions Expert</p><br>
+                <p><span class="status-dot status-active"></span> თავისუფალია</p><br>
+                <button class="btn btn-outline">ზარის მოთხოვნა</button>
             </div>
-            <div class="mentor-card unavailable">
-                <span class="status-badge status-booked">Booked (Waitlist)</span>
-                <h3>ანა კ.</h3>
-                <p>Oxford/Cambridge Expert</p>
-                <button class="btn" style="margin-top:15px">No Slots</button>
+            <div class="mentor-card booked">
+                <h3>გიორგი</h3>
+                <p>US Ivy League Expert</p><br>
+                <p><span class="status-dot status-busy"></span> დაკავებულია</p><br>
+                <button class="btn btn-outline" disabled>ადგილები შევსებულია</button>
             </div>
             <div class="mentor-card">
-                <span class="status-badge status-available">Available</span>
-                <h3>მარიამ ბ.</h3>
-                <p>EU Public Policy Expert</p>
-                <button class="btn" style="margin-top:15px">Request a Call</button>
+                <h3>ელენე</h3>
+                <p>EU Education Strategy</p><br>
+                <p><span class="status-dot status-active"></span> თავისუფალია</p><br>
+                <button class="btn btn-outline">ზარის მოთხოვნა</button>
             </div>
         </div>
     </section>
 
-    <section id="gallery">
-        <h2 class="section-title">მედია არქივი</h2>
-        <div class="gallery-grid">
-            <img src="pic1.jpg.jpeg" alt="Event 1">
-            <img src="cons2.jpg.jpeg" alt="Event 2">
-            <img src="pic2.jpg.jpeg" alt="TV Show">
-            <img src="pic3.jpg.jpeg" alt="UN Building">
-        </div>
-    </section>
-
-    <footer>
-        <div class="footer-grid">
-            <div>
-                <h3>Global Education Network</h3>
-                <p>ოქსფორდის წარმომადგენლობა საქართველოში.</p>
-            </div>
-            <div>
-                <h3>კონტაქტი</h3>
-                <p>Email: info@gen.ge</p>
-                <p>Social: @gen_georgia</p>
-            </div>
-        </div>
-        <p style="text-align:center; margin-top:3rem; font-size: 0.8rem; opacity: 0.6;">© 2026 GEN. All Rights Reserved.</p>
+    <footer style="background: var(--brand-blue); color: white; padding: 60px 5%; text-align: center;">
+        <h2 style="font-family: var(--serif); margin-bottom: 20px;">GEN - Global Education Network</h2>
+        <p>© 2026 ყველა უფლება დაცულია. ოქსფორდის ოფიციალური წარმომადგენლობა საქართველოში.</p>
     </footer>
 
-    <div class="cta-fixed" onclick="openApply()">
-        <i class="fas fa-edit"></i>
-    </div>
-
     <script>
+        // Language Logic
         let currentLang = 'GE';
-
-        const content = {
+        const langData = {
             'GE': {
                 heroTitle: "გლობალური განათლების ქსელი",
-                heroSub: "ოქსფორდის პირველი და ერთადერთი ოფიციალური წარმომადგენელი საქართველოში",
-                navProgs: "პროგრამები",
-                navMentors: "მენტორინგი",
-                navAcademy: "აკადემია",
-                navGallery: "გალერეა"
+                heroSub: "ოქსფორდის პირველი და ერთადერთი ოფიციალური წარმომადგენელი საქართველოში.",
+                heroBtn: "აღმოაჩინე პროგრამები",
+                progTitle: "საერთაშორისო პროგრამები",
+                mentorTitle: "აკადემიური მენტორინგი"
             },
             'EN': {
                 heroTitle: "Global Education Network",
-                heroSub: "The first and only official Oxford representative in Georgia",
-                navProgs: "Programs",
-                navMentors: "Mentorship",
-                navAcademy: "Academy",
-                navGallery: "Gallery"
+                heroSub: "The first and only official Oxford representative in Georgia.",
+                heroBtn: "Discover Programs",
+                progTitle: "International Programs",
+                mentorTitle: "Academic Mentoring"
             }
         };
 
-        function toggleLanguage() {
+        function changeLang() {
             currentLang = currentLang === 'GE' ? 'EN' : 'GE';
-            document.querySelector('.lang-switch').innerText = currentLang === 'GE' ? 'EN' : 'GE';
+            document.getElementById('langBtn').innerText = currentLang === 'GE' ? 'EN' : 'GE';
             
-            // Update Text Elements
-            document.getElementById('hero-title').innerText = content[currentLang].heroTitle;
-            document.getElementById('hero-sub').innerText = content[currentLang].heroSub;
-            document.getElementById('nav-programs').innerText = content[currentLang].navProgs;
-            document.getElementById('nav-mentors').innerText = content[currentLang].navMentors;
-            document.getElementById('nav-academy').innerText = content[currentLang].navAcademy;
-            document.getElementById('nav-gallery').innerText = content[currentLang].navGallery;
+            document.getElementById('hero-title').innerText = langData[currentLang].heroTitle;
+            document.getElementById('hero-sub').innerText = langData[currentLang].heroSub;
+            document.getElementById('hero-btn').innerText = langData[currentLang].heroBtn;
+            document.getElementById('prog-title').innerText = langData[currentLang].progTitle;
+            document.getElementById('mentor-title').innerText = langData[currentLang].mentorTitle;
         }
 
-        function openApply() {
-            const name = prompt("გთხოვთ შეიყვანოთ თქვენი სახელი:");
-            if(name) {
-                alert("მადლობა " + name + "! თქვენი მოთხოვნა გაიგზავნა ადმინისტრაციასთან. ჩვენ მალე დაგიკავშირდებით.");
-                console.log("Order Logged: Lead generated for " + name);
+        // Basket Logic
+        let cart = [];
+        function addToCart(item) {
+            cart.push(item);
+            document.getElementById('cart-count').innerText = cart.length;
+            alert(item + " დაემატა კალათაში!");
+        }
+
+        function toggleBasket() {
+            if(cart.length === 0) {
+                alert("კალათა ცარიელია");
+            } else {
+                alert("თქვენს კალათაშია: " + cart.join(", "));
             }
         }
     </script>
